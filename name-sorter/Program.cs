@@ -13,5 +13,9 @@ TODO: Add unit tests to make sure methods work as expected
 Comment code appropriately
 Create a readme documentation on GitHub 
 ----------------------------------------------------------------------------------
-                     
+          
+Purpose of this file will be to instantiate the different classes.
+Will be creating different classes (following SOLID principles), 1 for 
+reading names, 1 for sorting them, 1 for writing them to a text file and console    
+                
 */
