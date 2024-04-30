@@ -24,10 +24,16 @@ using name_sorter;
 
 var filePath = args.Length > 0 ? args[0] : "unsorted-names-list.txt";
 var read = new ReadName();
+var sort = new SortName();
 var write = new WriteName();
 
 var unsortedNames = read.ReadNames(filePath);
-Console.WriteLine("-------------------------------- Unsorted Names ----------------------------");
-write.PrintNames(unsortedNames);
+// Console.WriteLine("-------------------------------- Unsorted Names ----------------------------");
+// write.PrintNames(unsortedNames);
+// Console.WriteLine("----------------------------------------------------------------------------");
+
+var sortedNames = sort.SortNames(unsortedNames);
+Console.WriteLine("-------------------------------- Sorted Names ----------------------------");
+write.PrintNames(sortedNames);
 Console.WriteLine("----------------------------------------------------------------------------");
 
