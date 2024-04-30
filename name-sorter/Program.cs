@@ -37,3 +37,4 @@ Console.WriteLine("-------------------------------- Sorted Names ---------------
 write.PrintNames(sortedNames);
 Console.WriteLine("----------------------------------------------------------------------------");
 
+write.WriteNames(sortedNames, "sorted-names-list.txt");
