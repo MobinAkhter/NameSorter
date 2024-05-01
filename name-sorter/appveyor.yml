@@ -1,0 +1,14 @@
+image: Visual Studio 2022
+
+before_build:
+  - cmd: dotnet restore
+
+build_script:
+  - cmd: dotnet build -c Release
+
+test_script:
+  - cmd: dotnet test name-sorter.Tests/name-sorter.Tests.csproj --no-build --verbosity normal
+
+artifacts:
+  - path: '**\*.txt'
+    name: Text_Files
