@@ -1,23 +1,32 @@
-namespace name_sorter;
-
-/* 
- * Purpose of this class is to read names from the txt file
- * 
- */
-public class ReadName
+namespace name_sorter
 {
-    public List<string> ReadNames(string filePath)
+
+/*
+ * Purpose of this class is to read names from the txt file
+ *
+ */
+    public class ReadName
     {
-        try
+        private readonly IFileReader _fileReader;
+
+        public ReadName(IFileReader fileReader)
         {
-            // Read all lines from file path
-            var names = new List<string>(File.ReadAllLines(filePath));
-            return names;
+            _fileReader = fileReader;
         }
-        catch (Exception e)
+
+        public List<string> ReadNames(string filePath)
         {
-            Console.WriteLine("Could not read the file: " + e);
-            return new List<string>(); // instead of throwing an error, return an empty list
+            try
+            {
+                // Read all lines from file path
+                var names = new List<string>(_fileReader.ReadAllLines(filePath));
+                return names;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Could not read the file: " + e);
+                return new List<string>(); // instead of throwing an error, return an empty list
+            }
         }
     }
 }

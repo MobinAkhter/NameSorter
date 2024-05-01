@@ -23,7 +23,8 @@ reading names, 1 for sorting them, 1 for writing them to a text file and console
 using name_sorter;
 
 var filePath = args.Length > 0 ? args[0] : "unsorted-names-list.txt";
-var read = new ReadName();
+var fileReader = new FileReader();
+var read = new ReadName(fileReader);
 var sort = new SortName();
 var write = new WriteName();
 
@@ -32,9 +33,8 @@ var unsortedNames = read.ReadNames(filePath);
 // write.PrintNames(unsortedNames);
 // Console.WriteLine("----------------------------------------------------------------------------");
 
-var sortedNames = sort.SortNames(unsortedNames);
 Console.WriteLine("-------------------------------- Sorted Names ----------------------------");
-write.PrintNames(sortedNames);
+var sortedNames = sort.SortNames(unsortedNames);
 Console.WriteLine("----------------------------------------------------------------------------");
 
 write.WriteNames(sortedNames, "sorted-names-list.txt");
