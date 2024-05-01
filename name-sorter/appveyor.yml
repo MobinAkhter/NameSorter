@@ -1,14 +1,14 @@
 image: Visual Studio 2019
 
 before_build:
-  - cmd: dotnet restore ./name-sorter/name-sorter.sln
+  - cmd: dotnet restore name-sorter.sln  
 
 build_script:
-  - cmd: dotnet build ./name-sorter/name-sorter.sln -c Release
+  - cmd: dotnet build name-sorter.sln -c Release  
 
 test_script:
-  - cmd: dotnet test ./name-sorter.Tests/name-sorter.Tests.csproj --no-build --verbosity normal
+  - cmd: dotnet test name-sorter.Tests/name-sorter.Tests.csproj --no-build --verbosity normal  
 
 artifacts:
-  - path: './name-sorter/sorted-names-list.txt'
-  - path: './name-sorter/unsorted-names-list.txt'
+  - path: sorted-names-list.txt  
+  - path: unsorted-names-list.txt 
