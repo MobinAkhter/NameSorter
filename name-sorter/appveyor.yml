@@ -4,11 +4,12 @@ before_build:
   - cmd: dotnet restore
 
 build_script:
-  - cmd: dotnet build -c Release
+  - cmd: dotnet build name-sorter/name-sorter.csproj -c Release  
+  - cmd: dotnet build name-sorter.Tests/name-sorter.Tests.csproj -c Release  
 
 test_script:
   - cmd: dotnet test name-sorter.Tests/name-sorter.Tests.csproj --no-build --verbosity normal
 
 artifacts:
-  - path: '**\*.txt'
-    name: Text_Files
+  - path: 'name-sorter/sorted-names-list.txt' 
+  - path: 'name-sorter/unsorted-names-list.txt'  
